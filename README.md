@@ -105,8 +105,11 @@
     ![My Image](MySQLDB-Data.png)
 
        ### Endpoints file in JSON format saved under root folder
-         ### UserMgmtAPIEndpoints.json
+         UserMgmtAPIEndpoints.json
        
+
+       ### GIT Hub URL 
+        https://github.com/prasadDasari/UMS.git
       
 
 
