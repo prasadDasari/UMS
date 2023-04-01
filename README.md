@@ -95,7 +95,7 @@
     ![My Image](Swagger-Endpoint-Test.png)
 
 
-         ### MySQL DB Connection Details
+    ### MySQL DB Connection Details
 
     ![My Image](MySQLDB-Connection-Props.json)
 
