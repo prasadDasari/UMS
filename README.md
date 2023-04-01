@@ -97,7 +97,7 @@
 
     ### MySQL DB Connection Details
 
-    ![My Image](MySQLDB-Connection-Props.json)
+    ![My Image](MySQLDB-Connection-Props.png)
 
 
        ### MySQL DB Data Results
