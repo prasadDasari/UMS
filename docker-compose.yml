@@ -1,0 +1,39 @@
+# Create a Dockerfile that packages the Spring Boot application as a Docker container. Use the official OpenJDK 11 image as the base image for the container.
+
+# Use Docker Compose to create a multi-container environment that includes the MySQL database and the Spring Boot application container.
+version: '3.8'
+
+services:
+  user-management-services:
+    image: user-management-services
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    depends_on:
+      - mysql
+    command: sh -c './wait-for mysql_db:3306 -- npm start'
+    networks:
+      springboot-mysql-net:
+    restart: on-failure
+  mysql:
+    platform: linux/x86_64
+    container_name: mysqldb
+    image: mysql:8.0
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: userdb
+      MYSQL_USER: digicert
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+      #DATASOURCE_URL: jdbc:mysql://mysql:3306/userdb
+      # SPRING_DATASOURCE_USERNAME: root
+      # SPRING_DATASOURCE_PASSWORD: password
+    networks:
+      springboot-mysql-net:
+networks:
+  springboot-mysql-net:
+    
